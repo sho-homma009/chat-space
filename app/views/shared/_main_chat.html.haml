@@ -1,11 +1,26 @@
 .ChatMain
   .ChatMain__header
-    .ChatMain__header__info
-      .ChatMain__header__info__group
-        .ChatMain__header__info__group__name test
-        .ChatMain__header__info__group__members Menber：masa
-      =link_to "#", class: "ChatMain__header__info__edit-btn" do
-        Edit
+    .ChatMain__header__group
+      %h1.ChatMain__header__group__name test
+      %ul.ChatMain__header__group__members
+        %li Member：
+        %li masa
+    =link_to "#", class: "ChatMain__header__edit-btn" do
+      Edit
   .ChatMain__messages
+    .ChatMain__messages__message
+      .ChatMain__messages__message__info
+        .ChatMain__messages__message__info__UserName masa
+        .ChatMain__messages__message__info__date 2020/02/13(Thu) 21:13:27
+      .ChatMain__messages__message__text テスト文です。
+    .ChatMain__messages__message
+      .ChatMain__messages__message__info
+        .ChatMain__messages__message__info__UserName masa
+        .ChatMain__messages__message__info__date 2020/02/13(Thu) 21:30:46
+      .ChatMain__messages__message__text 明日はバレンタインDAY。
+    .ChatMain__messages__message
+      .ChatMain__messages__message__info
+        .ChatMain__messages__message__info__UserName masa
+        .ChatMain__messages__message__info__date 2020/02/13(Thu) 21:34:17
+      .ChatMain__messages__message__text マクドナルドなう。
   .ChatMain__form
-  
