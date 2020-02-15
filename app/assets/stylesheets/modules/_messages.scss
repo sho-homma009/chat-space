@@ -46,9 +46,8 @@
     background-color: #2f3e51;
     height: calc(100vh - 100px);
     width: 100%;
-    &__content {
-      width: 100%;
-      padding: 20px 20px 40px;
+    padding: 20px 20px 0;
+    &__group {
       margin-bottom: 40px;
       &__name {
         color: #ffffff;
