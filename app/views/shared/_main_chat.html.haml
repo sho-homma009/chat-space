@@ -24,3 +24,10 @@
         .ChatMain__messages__message__info__date 2020/02/13(Thu) 21:34:17
       .ChatMain__messages__message__text マクドナルドなう。
   .ChatMain__form
+    %form.new-message
+      .input-box
+        %input{type: "text", placeholder: "type a message", class: "input-box__text"}
+        %label{class: "input-box__image"}
+          = icon('far', 'image')
+          %input{type: "file", class: "input-box__image__file"}
+      %input{type: "submit", value: "Send", class: "send-btn"}
