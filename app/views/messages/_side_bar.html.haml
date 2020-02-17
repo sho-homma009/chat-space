@@ -4,17 +4,15 @@
       %h3.header-box__user-name
         = current_user.name
       .header-box__menu
-        = link_to "#" do
+        = link_to new_group_path do
           = icon('fas', 'edit', class:'header-box__menu__icons')
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog', class:'header-box__menu__icons')
   .SideBar__groups
-    .group-box
-      .group-box__name techcamp
-      .group-box__message まだメッセージはありません
-    .group-box
-      .group-box__name テスト1
-      .group-box__message まだメッセージはありません
-    .group-box
-      .group-box__name グループ1
-      .group-box__message まだメッセージはありません
+    - current_user.groups.each do |group|
+      .group-box
+        = link_to '#' do
+          .group-box__name
+            = group.name
+          .group-box__message
+            まだメッセージはありません
