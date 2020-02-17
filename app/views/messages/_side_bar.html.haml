@@ -1,11 +1,12 @@
 .SideBar
   .SideBar__header
     .header-box
-      .header-box__user-name masa
+      %h3.header-box__user-name
+        = current_user.name
       .header-box__menu
         = link_to "#" do
           = icon('fas', 'edit', class:'header-box__menu__icons')
-        = link_to "#" do
+        = link_to edit_user_path(current_user) do
           = icon('fas', 'cog', class:'header-box__menu__icons')
   .SideBar__groups
     .group-box
