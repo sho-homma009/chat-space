@@ -1,33 +1,24 @@
 .ChatMain
   .ChatMain__header
     .ChatMain__header__group
-      %h1.ChatMain__header__group__name test
+      .ChatMain__header__group__name
+        = @group.name
       %ul.ChatMain__header__group__members
         %li Member：
-        %li masa
-    =link_to "#", class: "ChatMain__header__edit-btn" do
+        %li
+          - @group.users.each do |user|
+            = user.name
+    =link_to edit_group_path(@group), class: "ChatMain__header__edit-btn" do
       Edit
+
   .ChatMain__messages
-    .message-box
-      .message-box__info
-        .message-box__info__UserName masa
-        .message-box__info__date 2020/02/13(Thu) 21:13:27
-      .message-box__text テスト文です。
-    .message-box
-      .message-box__info
-        .message-box__info__UserName masa
-        .message-box__info__date 2020/02/13(Thu) 21:30:46
-      .message-box__text テスト２。
-    .message-box
-      .message-box__info
-        .message-box__info__UserName masa
-        .message-box__info__date 2020/02/13(Thu) 21:34:17
-      .message-box__text テストテスト。
+    = render @messages
+    
   .ChatMain__form
-    %form.new-message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text", placeholder: "type a message", class: "input-box__text"}
-        %label{class: "input-box__image"}
+        = f.text_field :body, placeholder: "type a message", class: "input-box__text"
+        = f.label :image, class: "input-box__image" do
           = icon('far', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", value: "Send", class: "send-btn"}
+          = f.file_field :image, class: "input-box__image__file"
+      = f.submit "Send", class: "send-btn"
